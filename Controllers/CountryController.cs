@@ -1,5 +1,6 @@
 ﻿
 
+using DBFIRST_Cities3.DTO;
 using DBFIRST_Cities3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,65 +14,36 @@ namespace Db_CitiesProject2.Controllers
     public class CountryController : ControllerBase
     {
 
-/*
-        private readonly WorldContext _dbContext;
+
+        private readonly WorldContext _Context;
 
         public CountryController(WorldContext dbContext)
         {
-            _dbContext = dbContext;
+            _Context = dbContext;
         }
         // GET: api/<CountriesController>
         [HttpGet("GetAllCountries")]
         public async Task<ActionResult<List<Country1>>> Get() {
-            var countryDto = await _dbContext.Country1s.Select(c => new Country1
-            {
-                CountryId = c.CountryId,
-                CountryName = c.CountryName,
-                
-            })
-               .ToListAsync();
-            return Ok(countryDto);
-        }
+           
+             var countryDto = await _Context.Country1s
+              .Select(c => new OutputTables
+              {
+                  Id = c.CountryId,
+                  value = c.CountryName,
+                  
+              })
+              .ToListAsync();
 
-
-        // GET api/<CountriesController>/5
-        [HttpGet("GetCountry")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<CountriesController>
-        [HttpPost]
-        public void Post([FromBody] Country1 input)
-        {
-            if (input == null)
-            {
-                return;
+            if (countryDto != null)
+                {
+                    return Ok(countryDto);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-
-            var newCountry = new Country1
-            {
-                CountryName = input.CountryName
-               
-            };
-
-            _dbContext.Country1s.Add(newCountry);
-            _dbContext.SaveChanges();
-
-            
         }
-
-        // PUT api/<CountriesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CountriesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }*/
+        
     }
-}
+

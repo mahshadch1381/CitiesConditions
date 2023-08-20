@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DBFIRST_Cities3.DTO;
+using DBFIRST_Cities3.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +11,32 @@ namespace Db_CitiesProject2.Controllers
     [ApiController]
     public class LatitudeController : ControllerBase
     {
-       /* // GET: api/<LatitudeController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly WorldContext _Context;
 
-        // GET api/<LatitudeController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public LatitudeController(WorldContext dbContext)
         {
-            return "value";
+            _Context = dbContext;
         }
-
-        // POST api/<LatitudeController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // GET: api/<CountriesController>
+        [HttpGet("GetAllLatitudes")]
+        public async Task<ActionResult<List<OutputTables>>> Get()
         {
+            var countryDto = await _Context.Latitudes
+             .Select(c => new OutputTables
+             {
+                 Id = c.LatitudeId,
+                 value = c.Latitude1
+             })
+             .ToListAsync();
+
+            if (countryDto != null)
+            {
+                return Ok(countryDto);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
-
-        // PUT api/<LatitudeController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<LatitudeController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }*/
     }
 }

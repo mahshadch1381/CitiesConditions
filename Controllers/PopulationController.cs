@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DBFIRST_Cities3.DTO;
+using DBFIRST_Cities3.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +11,32 @@ namespace Db_CitiesProject2.Controllers
     [ApiController]
     public class PopulationController : ControllerBase
     {
-       /* // GET: api/<PopulationController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly WorldContext _Context;
 
-        // GET api/<PopulationController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public PopulationController(WorldContext dbContext)
         {
-            return "value";
+            _Context = dbContext;
         }
-
-        // POST api/<PopulationController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // GET: api/<CountriesController>
+        [HttpGet("GetAllPopulations")]
+        public async Task<ActionResult<List<OutputTables>>> Get()
         {
+            var countryDto = await _Context.Pops
+             .Select(c => new OutputTables
+             {
+                 Id = c.PopId,
+                 value = Convert.ToString(c.Popvalue)
+             })
+             .ToListAsync();
+
+            if (countryDto != null)
+            {
+                return Ok(countryDto);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
-
-        // PUT api/<PopulationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<PopulationController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }*/
     }
 }

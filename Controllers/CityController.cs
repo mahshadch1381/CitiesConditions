@@ -116,8 +116,7 @@ namespace Db_CitiesProject2.Controllers
                     try
                     {
                         var ( lg, lt) = await _informationService.GetCityInformationAsync(cityname);
-                        
-
+ 
                         Longitude longit = new Longitude();
                         longit.Cities= new List<City>();
                         longit.Longitude1 = lg;
