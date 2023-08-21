@@ -9,7 +9,7 @@ namespace DBFIRST_Cities3.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class RecommandController : ControllerBase
     {
         // GET: api/<ValuesController>
         private readonly WorldContext _Context;
@@ -18,7 +18,7 @@ namespace DBFIRST_Cities3.Controllers
         private readonly ICityPopulationService _icitypopulation;
         private readonly IHumidityService _huservice;
 
-        public ValuesController(WorldContext dbContext, IWeatherService weatherService, IInformationService informationService,
+        public RecommandController(WorldContext dbContext, IWeatherService weatherService, IInformationService informationService,
             ICityPopulationService cityPopulation, IHumidityService humidityservice)
         {
             _Context = dbContext;
@@ -38,118 +38,125 @@ namespace DBFIRST_Cities3.Controllers
             List<int> ew = new List<int>();
             List<int> hum = new List<int>();
 
-            if (ic.NOmatter2_crowded_YES1_NO0 == 0){
+            if (ic.NoMatter0_crowded_YES1_NO2 == 2){
                 crowded = (from city in _Context.Cities
                         join Pop in _Context.Pops on city.PopulationId equals Pop.PopId
-                        where Pop.Popvalue < 900000   // Replace with your condition
+                        where Pop.Popvalue < 900000   
                         select city.CityId).ToList();
             }
-            if (ic.NOmatter2_crowded_YES1_NO0 == 1)
+            if (ic.NoMatter0_crowded_YES1_NO2 == 1)
             {
                 crowded = (from city in _Context.Cities
                           join Pop in _Context.Pops on city.PopulationId equals Pop.PopId
-                          where Pop.Popvalue >= 900000   // Replace with your condition
+                          where Pop.Popvalue >= 900000   
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter2_crowded_YES1_NO0 == 2)
+            if (ic.NoMatter0_crowded_YES1_NO2 == 0)
             {
                 crowded = (from city in _Context.Cities
                           join Pop in _Context.Pops on city.PopulationId equals Pop.PopId
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter_country == null)
+            if (ic.NoMatter0_country == "0")
             {
                 country = (from city in _Context.Cities
                          join Counry in _Context.Country1s on city.CountryId equals Counry.CountryId
                          select city.CityId).ToList();
             }
-            if (ic.NOmatter_country != null)
+            if (ic.NoMatter0_country != "0")
             {
                 country = (from city in _Context.Cities
                          join Counry in _Context.Country1s on city.CountryId equals Counry.CountryId
-                         where Counry.CountryName == ic.NOmatter_country   // Replace with your condition
-                         select city.CityId).ToList();
+                         where Counry.CountryName == ic.NoMatter0_country   
+                          select city.CityId).ToList();
             }
-            if (ic.NOmatter0_Warm1_Cold2_Medium3 == 0)
+            if (ic.NoMatter0_Warm1_Cold2_Medium3 == 0)
             {
                 weather = (from city in _Context.Cities
                           join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter0_Warm1_Cold2_Medium3 == 1)
+            if (ic.NoMatter0_Warm1_Cold2_Medium3 == 1)
             {
                 weather = (from city in _Context.Cities
                           join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId
-                          where Temperature.Temperature1 >30 // Replace with your condition
+                          where Temperature.Temperature1 >30 
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter0_Warm1_Cold2_Medium3 == 2)
+            if (ic.NoMatter0_Warm1_Cold2_Medium3 == 2)
             {
                 weather = (from city in _Context.Cities
                           join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId
-                          where Temperature.Temperature1 <= 20 // Replace with your condition
+                          where Temperature.Temperature1 <= 20 
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter0_Warm1_Cold2_Medium3 == 3)
+            if (ic.NoMatter0_Warm1_Cold2_Medium3 == 3)
             {
                 weather = (from city in _Context.Cities
                           join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId
-                          where Temperature.Temperature1 < 30 && Temperature.Temperature1 > 20 // Replace with your condition
+                          where Temperature.Temperature1 <= 30 && Temperature.Temperature1 > 20 
                           select city.CityId).ToList();
             }
 
-            if (ic.NOmatter2_South1_North0 == 0)
+            if (ic.NoMatter0_South1_North2 == 2)
             {
                 ns = (from city in _Context.Cities
                           join Latitude in _Context.Latitudes on city.LatId equals Latitude.LatitudeId
-                          where Convert.ToDouble(Latitude.Latitude1) >0 // Replace with your condition
+                          where Convert.ToDouble(Latitude.Latitude1) >0 
                           select city.CityId).ToList();
             }
-            if (ic.NOmatter2_South1_North0 == 1)
+            if (ic.NoMatter0_South1_North2 == 1)
             {
                 ns = (from city in _Context.Cities
                      join Latitude in _Context.Latitudes on city.LatId equals Latitude.LatitudeId
-                     where Convert.ToDouble(Latitude.Latitude1) < 0 // Replace with your condition
+                     where Convert.ToDouble(Latitude.Latitude1) < 0 
                      select city.CityId).ToList();
             }
-            if (ic.NOmatter2_South1_North0 == 2)
+            if (ic.NoMatter0_South1_North2 == 0)
             {
                 ns = (from city in _Context.Cities
                      join Latitude in _Context.Latitudes on city.LatId equals Latitude.LatitudeId
                      select city.CityId).ToList();
             }
-            if (ic.NOmatter2_East1_West0 == 1)
+            if (ic.NoMatter0_East1_West2 == 1)
             {
                 ew = (from city in _Context.Cities
                      join Longitude in _Context.Longitudes on city.LongId equals Longitude.LongitudeId
-                     where Convert.ToDouble(Longitude.Longitude1) > 0 // Replace with your condition
+                     where Convert.ToDouble(Longitude.Longitude1) > 0 
                      select city.CityId).ToList();
             }
-            if (ic.NOmatter2_East1_West0 == 1)
+            if (ic.NoMatter0_East1_West2 == 2)
             {
                 ew = (from city in _Context.Cities
                      join Longitude in _Context.Longitudes on city.LongId equals Longitude.LongitudeId
-                     where Convert.ToDouble(Longitude.Longitude1) < 0 // Replace with your condition
+                     where Convert.ToDouble(Longitude.Longitude1) < 0 
                      select city.CityId).ToList();
             }
-            if (ic.NOmatter2_East1_West0 == 2)
+            if (ic.NoMatter0_East1_West2 == 0)
             {
                 ew = (from city in _Context.Cities
                      join Longitude in _Context.Longitudes on city.LongId equals Longitude.LongitudeId
                      select city.CityId).ToList();
             }
-            if (ic.HumidityOK_yes1_NO0 == 1)
+            if (ic.NoMatter0_HighHumidity1_LowHumidity2 == 0)
             {
                 hum = (from city in _Context.Cities
                       join Humidity in _Context.Humiditys on city.HumidityId equals Humidity.Humidityid
                       select city.CityId).ToList();
             }
-            if (ic.HumidityOK_yes1_NO0 == 0)
+            if (ic.NoMatter0_HighHumidity1_LowHumidity2 == 1)
             {
                 hum = (from city in _Context.Cities
                      join Humidity in _Context.Humiditys on city.HumidityId equals Humidity.Humidityid
-                     where Humidity.Humidity1 < 50 // Replace with your condition
+                     where Humidity.Humidity1 >= 50 
                      select city.CityId).ToList();
+            }
+            if (ic.NoMatter0_HighHumidity1_LowHumidity2 == 2)
+            {
+                hum = (from city in _Context.Cities
+                       join Humidity in _Context.Humiditys on city.HumidityId equals Humidity.Humidityid
+                       where Humidity.Humidity1 < 50 
+                       select city.CityId).ToList();
             }
             var combinedResults = from cityId in crowded
                                   join countryId in country on cityId equals countryId
@@ -164,8 +171,13 @@ namespace DBFIRST_Cities3.Controllers
                               select city.CityName).ToList();
             return Ok(finalResult);
         }
-        
 
+
+        
+       
+        
+       
+        
        
 
     }

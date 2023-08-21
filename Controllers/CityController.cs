@@ -339,9 +339,50 @@ namespace Db_CitiesProject2.Controllers
         }
 
         // DELETE api/<CitiesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("DeleteCity")]
+       
+        public IActionResult DeleteCity(int id)
         {
+            var city = _Context.Cities.Find(id);
+            if (city == null)
+            {
+                return NotFound();
+            }
+            var t = _Context.Temperatures.Find(city.TempId);
+            if (t != null)
+            {
+                _Context.Temperatures.Remove(t);
+            }
+            var H = _Context.Humiditys.Find(city.HumidityId);
+            if (H != null)
+            {
+                _Context.Humiditys.Remove(H);
+            }
+            var lg = _Context.Longitudes.Find(city.LongId);
+            if (lg != null)
+            {
+                _Context.Longitudes.Remove(lg);
+            }
+            var lt = _Context.Latitudes.Find(city.LatId);
+            if (lt != null)
+            {
+                _Context.Latitudes.Remove(lt);
+            }
+            var c = _Context.Country1s.Find(city.CountryId);
+            if (c != null)
+            {
+                _Context.Country1s.Remove(c);
+            }
+            var p = _Context.Pops.Find(city.PopulationId);
+            if (p != null)
+            {
+                _Context.Pops.Remove(p);
+            }
+            _Context.Cities.Remove(city);
+
+            _Context.SaveChanges();
+
+            return NoContent();
         }
     }
 }
