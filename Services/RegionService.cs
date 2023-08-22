@@ -27,6 +27,9 @@ public class RegionService : IInformationService
     }
      
     public async Task<string> GetCityLatitudeAsync(string city)
+
+
+
     {
         return await GetCityInfo(city, "lat");
     }

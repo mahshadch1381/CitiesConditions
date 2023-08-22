@@ -27,8 +27,6 @@ namespace Db_CitiesProject2.Controllers
             _icitypopulation = cityPopulation;
             _huservice = humidityservice;
         }
-
-
         [HttpGet("GetAllCities")]
         public async Task<ActionResult<List<City>>> GetAllCities()
         {
@@ -37,9 +35,9 @@ namespace Db_CitiesProject2.Controllers
             foreach(City city in cities)
             {
                 var temperature1 = _Context.Temperatures
-                                 .Where(temp => temp.TempId == city.TempId)
-                                  .Select(temp => temp.Temperature1)
-                                   .SingleOrDefault();
+                          .Where(temp => temp.TempId == city.TempId)
+                          .Select(temp => temp.Temperature1)
+                          .SingleOrDefault();
                 var Lat1 = _Context.Latitudes
                           .Where(temp => temp.LatitudeId == city.LatId)
                           .Select(temp => temp.Latitude1)
@@ -57,9 +55,9 @@ namespace Db_CitiesProject2.Controllers
                          .Select(temp => temp.Popvalue)
                          .SingleOrDefault();
                 var humidity = _Context.Humiditys
-                        .Where(temp => temp.Humidityid == city.HumidityId)
-                        .Select(temp => temp.Humidity1)
-                        .SingleOrDefault();
+                         .Where(temp => temp.Humidityid == city.HumidityId)
+                         .Select(temp => temp.Humidity1)
+                         .SingleOrDefault();
                 CityDto cd = new CityDto();
                 cd.population = POPULATION;
                 cd.modifiedtime = city.Modifitime;
@@ -72,7 +70,6 @@ namespace Db_CitiesProject2.Controllers
                 cd.Id = city.CityId;
                 cityList.Add(cd);
             }    
-           
             return Ok(cityList);
         }
         // GET: api/<CitiesController>
@@ -82,14 +79,13 @@ namespace Db_CitiesProject2.Controllers
             try
             {
                 City b = await _Context.Cities.FirstOrDefaultAsync(c => c.CityName == cityname);
+                Temperature te = new Temperature();
                 if (b == null)
-                {
-                    
+                { 
                     City city = new City();
                     city.CityName = cityname;
                     DateTime dateTime = DateTime.Now;
                     city.Modifitime = dateTime.ToString();
-                    
                     try
                     {
                         double temperature = await _weatherService.GetTemperatureAsync(city.CityName);
@@ -99,6 +95,8 @@ namespace Db_CitiesProject2.Controllers
                         t.Temperature1 = Convert.ToInt32(temp);
                         t.Cities = new List<City>();    
                         _Context.Temperatures.Add(t);
+                        await _Context.SaveChangesAsync();
+                        te = t;
                         city.Temp = t;
                         await _Context.SaveChangesAsync();
                         var g = await _Context.Temperatures.FirstOrDefaultAsync(c => c.Temperature1 == Convert.ToInt32(temp));
@@ -130,16 +128,12 @@ namespace Db_CitiesProject2.Controllers
                         _Context.Latitudes.Add(latitude);
                         await _Context.SaveChangesAsync();
 
-
-                       
-
                         var g1 = await _Context.Longitudes.FirstOrDefaultAsync(c => c.Longitude1 == lg);
                         city.LongId = g1?.LongitudeId;
 
                         var g2 = await _Context.Latitudes.FirstOrDefaultAsync(c => c.Latitude1 == lt);
                         city.LatId = g2?.LatitudeId;
                         await _Context.SaveChangesAsync();
-
                     }
                     catch (HttpRequestException ex)
                     {
@@ -157,7 +151,6 @@ namespace Db_CitiesProject2.Controllers
                         p.Popvalue = pop;
                         city.Population = p;
                         _Context.Pops.Add(p);
-
 
                         Country1 country = new Country1();
                         country.Cities = new List<City>();
@@ -192,7 +185,6 @@ namespace Db_CitiesProject2.Controllers
                         city.Humidity = humidity;
                         var g2 = await _Context.Humiditys.FirstOrDefaultAsync(c => c.Humidity1 == str);
                         city.HumidityId = g2?.Humidityid;
-                        
                     }
                     catch (HttpRequestException ex)
                     {
@@ -202,21 +194,15 @@ namespace Db_CitiesProject2.Controllers
                         }
                         return StatusCode(500, $"Error fetching weather data: {ex.Message}");
                     }
-                   
-
-
                     await _Context.SaveChangesAsync();
-
-
                     city.Humidity.Cities.Add(city);
                     city.Lat.Cities.Add(city);
                     city.Long.Cities.Add(city);
                     city.Population.Cities.Add(city);
                     city.Country.Cities.Add(city); 
                     city.Temp.Cities.Add(city);
-
+                    city.Temp = te;
                     await _Context.SaveChangesAsync();
-
                     string modifyTime = $"Last updated Time is {city.Modifitime}";
                     string apiResponse = $"Temperature in {city.CityName} : {city.Temp.Temperature1}°C";
                     string moreinfo = $"Latitude  : {city.Lat.Latitude1},\nLongitude : {city.Long.Longitude1} ,";
@@ -226,16 +212,13 @@ namespace Db_CitiesProject2.Controllers
                 }
                 
                 DateTime submissionTime = DateTime.Parse(b.Modifitime);
-
                 DateTime currentTime = DateTime.Now;
                 TimeSpan timeDifference = currentTime - submissionTime;
-                
                 if (timeDifference.TotalMinutes >= 30)
                 {
                     double temperature = await _weatherService.GetTemperatureAsync(b.CityName);
                     DateTime dateTime = DateTime.Now;
-                    b.Modifitime = dateTime.ToString();
-                    
+                    b.Modifitime = dateTime.ToString();   
                    string formattedNumber = temperature.ToString("0.00");
                     double temp = Double.Parse(formattedNumber);
                     int a = (int)temp;
@@ -248,7 +231,6 @@ namespace Db_CitiesProject2.Controllers
                     {
                         g2.Temperature1 = a;
                     }
-
                     int str = await _huservice.GetCityHumidityAsync(b.CityName);
                     if (b.Humidity != null)
                     {
@@ -294,7 +276,6 @@ namespace Db_CitiesProject2.Controllers
                 }
                 else
                 {
-             
                     var temperature = _Context.Temperatures
                              .Where(temp => temp.TempId == b.TempId)
                              .Select(temp => temp.Temperature1)
@@ -335,9 +316,7 @@ namespace Db_CitiesProject2.Controllers
                 }
                 return StatusCode(500, $"Error fetching weather data: {ex.Message}");
             }
-
         }
-
         // DELETE api/<CitiesController>/5
         [HttpDelete("DeleteCity")]
        

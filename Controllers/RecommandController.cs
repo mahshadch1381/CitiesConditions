@@ -28,8 +28,8 @@ namespace DBFIRST_Cities3.Controllers
             _huservice = humidityservice;
         }
         
-        [HttpPost]
-        public async Task<ActionResult<List<RecommandCities>>> Post([FromBody] InputCondition ic)
+        [HttpPost("SuggestCities")]
+        public async Task<ActionResult<List<string>>> Post([FromBody] InputCondition ic)
         {
             List<int> crowded = new List<int>();
             List<int> country = new List<int>();
@@ -73,7 +73,8 @@ namespace DBFIRST_Cities3.Controllers
             if (ic.NoMatter0_Warm1_Cold2_Medium3 == 0)
             {
                 weather = (from city in _Context.Cities
-                          join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId
+                          join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId 
+
                           select city.CityId).ToList();
             }
             if (ic.NoMatter0_Warm1_Cold2_Medium3 == 1)
@@ -97,7 +98,6 @@ namespace DBFIRST_Cities3.Controllers
                           where Temperature.Temperature1 <= 30 && Temperature.Temperature1 > 20 
                           select city.CityId).ToList();
             }
-
             if (ic.NoMatter0_South1_North2 == 2)
             {
                 ns = (from city in _Context.Cities
@@ -171,14 +171,6 @@ namespace DBFIRST_Cities3.Controllers
                               select city.CityName).ToList();
             return Ok(finalResult);
         }
-
-
-        
-       
-        
-       
-        
-       
 
     }
 }
