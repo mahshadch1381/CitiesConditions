@@ -86,3 +86,5 @@ D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Remote.Linq.dll
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Remote.Linq.Newtonsoft.Json.dll
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\NLog.dll
+D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\StackExchange.Redis.dll

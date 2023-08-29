@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
 using DBFIRST_Cities3.relation;
+using StackExchange.Redis;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,9 +32,15 @@ builder.Services.AddScoped<ICityPopulationService, CityPopulationService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHumidityService, HumidityService>();
+
+//var redisConnectionString = "localhost:6379";
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379"));
+
 var app = builder.Build();
 
 builder.Services.AddLogging();
+
 
 app.Use(async (context, next) =>
 {
