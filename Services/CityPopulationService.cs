@@ -36,7 +36,7 @@
                     return population;
                 }
 
-                return 0;
+                return 100;
             }
             catch (Exception ex)
             {

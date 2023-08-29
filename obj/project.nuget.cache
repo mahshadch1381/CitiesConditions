@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "73Akie+MNWQxI/nGku8dU2pIjHUBrP/Um7eOEtxxzhGq/rJRFk1fJoztYp4hzprcVNhobLNsPfzR+j4W9mtMOw==",
+  "dgSpecHash": "GC+E/VfZCuaUqzTqj+8biDN3QeuA9miz/FrJNIowErts9d2hIg7sg7o8Q5liACuY+VzA1knCuhXVPcn6SH9OPA==",
   "success": true,
   "projectFilePath": "D:\\projects\\DBFIRST-Cities3\\DBFIRST-Cities3\\DBFIRST-Cities3.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\Academy 11\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Academy 11\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Academy 11\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Academy 11\\.nuget\\packages\\nlog\\5.2.3\\nlog.5.2.3.nupkg.sha512",
     "C:\\Users\\Academy 11\\.nuget\\packages\\remote.linq\\7.1.0\\remote.linq.7.1.0.nupkg.sha512",
     "C:\\Users\\Academy 11\\.nuget\\packages\\remote.linq.newtonsoft.json\\7.1.0\\remote.linq.newtonsoft.json.7.1.0.nupkg.sha512",
     "C:\\Users\\Academy 11\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

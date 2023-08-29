@@ -74,9 +74,8 @@ namespace DBFIRST_Cities3.Controllers
             {
                 weather = (from city in _Context.Cities
                           join Temperature in _Context.Temperatures on city.TempId equals Temperature.TempId 
-
                           select city.CityId).ToList();
-            }
+            }                                                
             if (ic.NoMatter0_Warm1_Cold2_Medium3 == 1)
             {
                 weather = (from city in _Context.Cities

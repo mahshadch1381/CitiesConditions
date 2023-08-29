@@ -1,0 +1,18 @@
+Request: GET /swagger/index.html
+Response: 200
+
+Request: GET /swagger/v1/swagger.json
+Response: 200
+
+Request: GET /api/City/GetAllCities
+Response: 200
+
+Request: GET /api/Country/GetAllCountries
+Response: 200
+
+Request: GET /api/City/GetTempOfCity
+Response: 200
+
+Request: POST /api/Recommand/SuggestCities
+Response: 200
+

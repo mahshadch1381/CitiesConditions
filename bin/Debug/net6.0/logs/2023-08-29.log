@@ -1,0 +1,45 @@
+Information: Request: GET /swagger/index.html , request time : 8/29/2023 9:24:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 8/29/2023 9:24:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 8/29/2023 9:24:19 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:24:40 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:24:55 AM
+Information: Response: 200 OK
+
+Error: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:25:00 AM
+Error: Response: 500 Internal Server Error
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:25:03 AM
+Warning: Response: 400 Bad Request
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 8/29/2023 9:25:10 AM
+Warning: Response: 404 Not Found
+
+Information: Request: DELETE /api/City/DeleteCity , request time : 8/29/2023 9:25:36 AM
+Information: Response: 204 No Content
+
+Information: Request: GET /api/City/GetAllCities , request time : 8/29/2023 9:25:46 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:25:59 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 8/29/2023 9:26:01 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 8/29/2023 9:26:09 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/SuggestCities , request time : 8/29/2023 9:26:27 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/SuggestCities , request time : 8/29/2023 9:26:36 AM
+Information: Response: 200 OK
+

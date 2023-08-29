@@ -43,7 +43,23 @@ namespace Db_CitiesProject2.Controllers
                     return NotFound();
                 }
             }
+        [HttpDelete("DeleteCity")]
+
+        public IActionResult DeleteCountry(int id)
+        {
+            var country= _Context.Country1s.Find(id);
+            if (country == null)
+            {
+                return NotFound();
+            }
+            
+            _Context.Country1s.Remove(country);
+
+            _Context.SaveChanges();
+
+            return NoContent();
         }
+    }
         
     }
 
