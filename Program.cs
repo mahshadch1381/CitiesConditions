@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using DBFIRST_Cities3.relation;
 using StackExchange.Redis;
-
+using DBFIRST_Cities3.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +36,7 @@ builder.Services.AddScoped<IHumidityService, HumidityService>();
 //var redisConnectionString = "localhost:6379";
 var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379"));
-
+builder.Services.AddSingleton<IRedisService, RedisService>();
 var app = builder.Build();
 
 builder.Services.AddLogging();

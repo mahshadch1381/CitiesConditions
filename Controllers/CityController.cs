@@ -18,16 +18,18 @@ namespace Db_CitiesProject2.Controllers
         private readonly IInformationService _informationService;
         private readonly ICityPopulationService _icitypopulation;
         private readonly IHumidityService _huservice;
+        private readonly IRedisService _redisService;
 
         public CityController(WorldContext dbContext,IWeatherService weatherService, IInformationService informationService,
-            ICityPopulationService cityPopulation, IHumidityService humidityservice)
+            ICityPopulationService cityPopulation, IHumidityService humidityservice, IRedisService redisService)
         {
             _Context = dbContext;
             _weatherService = weatherService;
             _informationService = informationService;
             _icitypopulation = cityPopulation;
             _huservice = humidityservice;
-            
+            _redisService = redisService;
+
         }
         [HttpGet("GetAllCities")]
         public async Task<ActionResult<List<City>>> GetAllCities()
@@ -80,7 +82,7 @@ namespace Db_CitiesProject2.Controllers
         {
             try
            {
-                CityDto x = MyRedisService.GetCityFromRedisByName(cityname);
+                CityDto x = _redisService.GetCityFromRedisByName(cityname);
                 
                 if (x != null)
                 {
@@ -89,7 +91,7 @@ namespace Db_CitiesProject2.Controllers
                     string moreinfo = $"Latitude  : {x.Latitude},\nLongitude : {x.Longitude} ,";
                     string popp = $"countryname  : {x.country},\npopulation : {x.population}";
                     string hum = $"Humidity : {x.Humidity}";
-                    MyRedisService.StoreCityInRedisWithExpiry(x);
+                    _redisService.StoreCityInRedisWithExpiry(x);
                     return Ok("From Redis cache" + "\n" + apiResponse + ".\n" + modifyTime + ".\n" + moreinfo + "\n" + popp + "\n" + hum);
                 }
                else
@@ -295,7 +297,7 @@ namespace Db_CitiesProject2.Controllers
                         cto.Longitude = Log1;
                         cto.country = COUNTRYNAME;
                         cto.Humidity = humidity;
-                        MyRedisService.StoreCityInRedisWithExpiry(cto);
+                        _redisService.StoreCityInRedisWithExpiry(cto);
                         string modifyTime = $"Last updated Time is {b.Modifitime}";
                         string apiResponse = $"Temperature in {b.CityName} : {temperature1}°C";
                         string moreinfo = $"Latitude  : {Lat1},\nLongitude : {Log1} ,";
@@ -339,7 +341,7 @@ namespace Db_CitiesProject2.Controllers
                         cto.Longitude = Log1;
                         cto.country = COUNTRYNAME;
                         cto.Humidity = humidity;
-                        MyRedisService.StoreCityInRedisWithExpiry(cto);
+                        _redisService.StoreCityInRedisWithExpiry(cto);
                         string modifyTime = $"Last updated Time is {b.Modifitime}";
                         string apiResponse = $"Temperature in {b.CityName} : {temperature}°C";
                         string moreinfo = $"Latitude  : {Lat1},\nLongitude : {Log1} ,";
