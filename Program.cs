@@ -10,6 +10,7 @@ using System.IO;
 using DBFIRST_Cities3.relation;
 using StackExchange.Redis;
 using DBFIRST_Cities3.Services;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,8 +34,32 @@ builder.Services.AddScoped<ICityPopulationService, CityPopulationService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHumidityService, HumidityService>();
 
-//var redisConnectionString = "localhost:6379";
+
+var redisServerPath = "D:\\red\\redis-server.exe";
+if (File.Exists(redisServerPath))
+{
+    var processInfo = new ProcessStartInfo
+    {
+        FileName = redisServerPath,
+        UseShellExecute = false,
+        RedirectStandardOutput = true,
+        CreateNoWindow = true
+    };
+
+    var process = new Process { StartInfo = processInfo };
+    process.Start();
+    using (StreamReader reader = process.StandardOutput)
+    {
+        string output = reader.ReadToEnd();
+        Console.WriteLine(output);
+    }
+}
+else
+{
+    Console.WriteLine("Redis server executable not found.");
+}
 var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+//var redisConnectionString = "localhost:6379";
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379"));
 builder.Services.AddSingleton<IRedisService, RedisService>();
 var app = builder.Build();
@@ -47,18 +72,12 @@ app.Use(async (context, next) =>
     var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
     var logDirectory = Path.Combine(AppContext.BaseDirectory, "logs");
     var logFilePath = Path.Combine(logDirectory, $"{currentDate}.log");
-
     var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
-
     var originalBodyStream = context.Response.Body;
-
     Directory.CreateDirectory(logDirectory);
-
     using var responseBody = new MemoryStream();
     context.Response.Body = responseBody;
-
     await next.Invoke();
-
     string logLevel;
     if (context.Response.StatusCode >= 500)
     {
@@ -72,7 +91,6 @@ app.Use(async (context, next) =>
     {
         logLevel = "Information";
     }
-
     var requestMessage = $"Request: {context.Request.Method} {context.Request.Path}";
     logger.LogInformation($"{logLevel}: {requestMessage}");
 
@@ -94,15 +112,12 @@ app.Use(async (context, next) =>
         writer.WriteLine();
     }
 });
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();
