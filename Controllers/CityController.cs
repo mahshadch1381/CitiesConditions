@@ -366,7 +366,10 @@ namespace Db_CitiesProject2.Controllers
        
         public IActionResult DeleteCity(int id)
         {
+
             var city = _Context.Cities.Find(id);
+            _redisService.DeleteCityInRedisByName(city.CityName);
+           
             if (city == null)
             {
                 return NotFound();

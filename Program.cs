@@ -67,6 +67,8 @@ var app = builder.Build();
 builder.Services.AddLogging();
 
 
+
+
 app.Use(async (context, next) =>
 {
     var currentDate = DateTime.Now.ToString("yyyy-MM-dd");

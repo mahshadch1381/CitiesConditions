@@ -424,3 +424,102 @@ Information: Response: 200 OK
 Information: Request: GET /swagger/v1/swagger.json , request time : 9/2/2023 12:42:59 PM
 Information: Response: 200 OK
 
+Information: Request: GET /swagger/index.html , request time : 9/2/2023 1:29:44 PM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/2/2023 1:29:44 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:29:49 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:29:51 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:30:19 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:30:23 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:30:25 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:30:38 PM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/index.html , request time : 9/2/2023 1:56:47 PM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/2/2023 1:56:47 PM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:56:55 PM
+Warning: Response: 400 Bad Request
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:57:04 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:57:06 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 1:57:07 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:57:13 PM
+Information: Response: 200 OK
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:57:24 PM
+Warning: Response: 404 Not Found
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:57:32 PM
+Warning: Response: 404 Not Found
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:57:39 PM
+Information: Response: 200 OK
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:58:06 PM
+Warning: Response: 404 Not Found
+
+Information: Request: GET /swagger/index.html , request time : 9/2/2023 1:58:30 PM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/2/2023 1:58:31 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:58:42 PM
+Information: Response: 200 OK
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:58:57 PM
+Warning: Response: 404 Not Found
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:59:08 PM
+Warning: Response: 404 Not Found
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/2/2023 1:59:18 PM
+Information: Response: 200 OK
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 1:59:27 PM
+Warning: Response: 404 Not Found
+
+Information: Request: GET /swagger/index.html , request time : 9/2/2023 2:00:23 PM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/2/2023 2:00:24 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 2:00:36 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 2:00:40 PM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 2:00:40 PM
+Information: Response: 200 OK
+
+Information: Request: DELETE /api/City/DeleteCity , request time : 9/2/2023 2:00:47 PM
+Information: Response: 204 No Content
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/2/2023 2:01:02 PM
+Information: Response: 200 OK
+

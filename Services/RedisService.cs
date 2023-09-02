@@ -11,6 +11,8 @@ namespace DBFIRST_Cities3.Services
         void StoreCityInRedisWithExpiry(CityDto city);
         CityDto GetCityFromRedisByName(string cityName);
         bool ContainsCityInRedisByName(string cityName);
+        bool DeleteCityInRedisByName(string cityName);
+        bool UpdateCityInRedis(CityDto updatedCity);
     }
     public class RedisService : IRedisService
     {
@@ -51,5 +53,33 @@ namespace DBFIRST_Cities3.Services
             var key = $"City:{cityName}";
             return db.KeyExists(key);
         }
+        public bool DeleteCityInRedisByName(string cityName)
+        {
+            var db = _connection.GetDatabase();
+            var key = $"City:{cityName}";
+
+            if (db.KeyDelete(key))
+            {
+                return true; 
+            }
+
+            return false; 
+        }
+        public bool UpdateCityInRedis(CityDto updatedCity)
+        {
+            var db = _connection.GetDatabase();
+            var key = $"City:{updatedCity.Name}";
+
+            if (db.KeyExists(key))
+            {
+                var value = JsonConvert.SerializeObject(updatedCity);
+                var expiry = TimeSpan.FromMinutes(5);
+                db.StringSet(key, value, expiry);
+                return true; 
+            }
+
+            return false; 
+        }
     }
+
 }
