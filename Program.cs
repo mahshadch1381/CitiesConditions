@@ -11,9 +11,51 @@ using DBFIRST_Cities3.relation;
 using StackExchange.Redis;
 using DBFIRST_Cities3.Services;
 using System.Diagnostics;
+using DBFIRST_Cities3.Auth;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("AuthenConnection");
+    options.UseSqlServer(connectionString);
+});
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// Adding Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+
+// Adding Jwt Bearer
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ClockSkew = TimeSpan.Zero,
+
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+    };
+});
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,6 +63,43 @@ builder.Services.AddDbContext<WorldContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Data Source=ACADEMY11\\SQLEXPRESS;Initial Catalog=world;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 });
+
+
+
+
+
+/*builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy =>
+    {
+        policy.RequireRole("Admin");
+    });
+
+    options.AddPolicy("UserPolicy", policy =>
+    {
+        // Allow regular users to access the GetTempOfCity API.
+        policy.RequireAssertion(context =>
+        {
+            var httpContext = context.Resource as Microsoft.AspNetCore.Http.HttpContext;
+            if (httpContext == null)
+            {
+                return false;
+            }
+
+            var endpoint = httpContext.GetEndpoint();
+            if (endpoint == null)
+            {
+                return false;
+            }
+
+            // Check if the user is authenticated and not an admin.
+            return context.User.Identity.IsAuthenticated &&
+                   !context.User.IsInRole("Admin") &&
+                    (endpoint.DisplayName == "GetTempOfCity" ||
+                    endpoint.DisplayName == "PostSuggestCities");
+        });
+    });
+});*/
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
@@ -65,9 +144,6 @@ builder.Services.AddSingleton<IRedisService, RedisService>();
 var app = builder.Build();
 
 builder.Services.AddLogging();
-
-
-
 
 app.Use(async (context, next) =>
 {
@@ -120,6 +196,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+
+// https://www.c-sharpcorner.com/article/jwt-authentication-with-refresh-tokens-in-net-6-0/

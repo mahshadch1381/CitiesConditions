@@ -1,0 +1,474 @@
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 8:57:28 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 8:57:28 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 8:57:29 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 8:57:29 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 8:58:06 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 8:59:24 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 8:59:36 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 8:59:38 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 8:59:47 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 8:59:53 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:00:34 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:00:35 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:00:43 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:00:45 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:00:47 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:01:27 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:01:42 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 9:03:08 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 9:03:09 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:03:43 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:03:56 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 9:07:53 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 9:07:53 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 9:08:06 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 9:08:06 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:08:38 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:08:57 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:08:58 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:08:59 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:09:01 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:09:02 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:09:30 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:09:35 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:09:49 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:24:35 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:25:09 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:27:13 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:27:28 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:28:03 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 9:32:08 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 9:32:08 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:32:16 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:32:30 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 9:34:56 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 9:34:57 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:35:04 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:35:19 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:35:53 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:36:14 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:36:27 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:36:32 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:36:38 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:36:40 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:36:58 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:05 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:07 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:11 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:13 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:15 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:16 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:27 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:29 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:37:30 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 9:49:03 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 9:50:04 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 9:50:16 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 9:50:25 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 9:52:20 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:53:01 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 9:53:58 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 9:54:32 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:54:47 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:00 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:04 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:05 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:15 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:16 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:17 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:18 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:29 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:30 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:55 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:55:57 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 9:56:45 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:57:02 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 9:57:04 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:57:11 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:57:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:57:15 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:58:02 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:58:04 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 9:58:32 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:58:45 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:58:46 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 9:58:47 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:01:27 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 10:12:03 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 10:12:04 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 10:12:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:12:26 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:12:34 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:12:36 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:12:37 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:12:50 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:12:57 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:13:05 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:13:11 AM
+Information: Response: 200 OK
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:13:18 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /swagger/index.html , request time : 9/4/2023 10:14:08 AM
+Information: Response: 200 OK
+
+Information: Request: GET /swagger/v1/swagger.json , request time : 9/4/2023 10:14:08 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 10:15:14 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:15:33 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:15:34 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:15:37 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:15:46 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:15:47 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:15:59 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:16:01 AM
+Information: Response: 200 OK
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:16:12 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:16:24 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:16:28 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:16:31 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 10:16:37 AM
+Warning: Response: 400 Bad Request
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 10:16:47 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:17:06 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:17:16 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:17:22 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:17:28 AM
+Information: Response: 200 OK
+
+Warning: Request: DELETE /api/City/DeleteCity , request time : 9/4/2023 10:18:21 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 10:18:42 AM
+Information: Response: 200 OK
+
+Information: Request: DELETE /api/City/DeleteCity , request time : 9/4/2023 10:18:56 AM
+Information: Response: 204 No Content
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:19:13 AM
+Information: Response: 200 OK
+
+Warning: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:24:04 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 10:24:52 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 10:25:11 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:25:21 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:25:23 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 10:25:24 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:25:34 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:25:35 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:25:42 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:25:50 AM
+Information: Response: 200 OK
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 10:43:27 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/login , request time : 9/4/2023 11:11:46 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetAllCities , request time : 9/4/2023 11:12:05 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 11:12:23 AM
+Information: Response: 200 OK
+
+Information: Request: GET /api/City/GetTempOfCity , request time : 9/4/2023 11:12:24 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:12:40 AM
+Information: Response: 200 OK
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:12:47 AM
+Warning: Response: 401 Unauthorized
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:12:52 AM
+Warning: Response: 401 Unauthorized
+
+Information: Request: POST /api/Authenticate/refresh-token , request time : 9/4/2023 11:13:35 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:13:54 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:14:13 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:14:23 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:14:27 AM
+Information: Response: 200 OK
+
+Information: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:14:32 AM
+Information: Response: 200 OK
+
+Warning: Request: POST /api/Recommand/PostSuggestCities , request time : 9/4/2023 11:14:36 AM
+Warning: Response: 401 Unauthorized
+

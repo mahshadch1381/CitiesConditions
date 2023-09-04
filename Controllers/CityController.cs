@@ -4,11 +4,12 @@ using DBFIRST_Cities3.Services;
 using First_Project.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Db_CitiesProject2.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CityController : ControllerBase
@@ -77,6 +78,7 @@ namespace Db_CitiesProject2.Controllers
             return Ok(cityList);
         }
         // GET: api/<CitiesController>
+        
         [HttpGet("GetTempOfCity")]
         public async Task<ActionResult<City>> Get(string cityname)
         {
@@ -368,8 +370,7 @@ namespace Db_CitiesProject2.Controllers
         {
 
             var city = _Context.Cities.Find(id);
-            _redisService.DeleteCityInRedisByName(city.CityName);
-           
+            _redisService.DeleteCityInRedisByName(city.CityName); 
             if (city == null)
             {
                 return NotFound();

@@ -88,3 +88,5 @@ D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Remote.Linq.Newtons
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\NLog.dll
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\StackExchange.Redis.dll
+D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\projects\DBFIRST-Cities3\DBFIRST-Cities3\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

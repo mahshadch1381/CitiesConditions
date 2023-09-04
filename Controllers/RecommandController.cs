@@ -1,12 +1,14 @@
 ﻿using DBFIRST_Cities3.DTO;
 using DBFIRST_Cities3.Models;
 using First_Project.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace DBFIRST_Cities3.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RecommandController : ControllerBase
@@ -28,7 +30,7 @@ namespace DBFIRST_Cities3.Controllers
             _huservice = humidityservice;
         }
         
-        [HttpPost("SuggestCities")]
+        [HttpPost("PostSuggestCities")]
         public async Task<ActionResult<List<string>>> Post([FromBody] InputCondition ic)
         {
             List<int> crowded = new List<int>();
