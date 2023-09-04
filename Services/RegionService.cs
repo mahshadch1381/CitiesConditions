@@ -14,10 +14,12 @@ public interface IInformationService
 public class RegionService : IInformationService
 {
     private readonly HttpClient _httpClient;
+    private readonly IConfiguration _configuration;
 
-    public RegionService(HttpClient httpClient)
+    public RegionService(HttpClient httpClient, IConfiguration configuration)
     {
         _httpClient = httpClient;
+        _configuration = configuration;
     }
 
     
@@ -36,7 +38,10 @@ public class RegionService : IInformationService
 
     private async Task<string> GetCityInfo(string city, string infoKey)
     {
-        string url = $"https://nominatim.openstreetmap.org/search?q={Uri.EscapeDataString(city)}&format=json";
+        string apiUrl = _configuration["ApiUrls:Nominatim"];
+        string escapedCity = Uri.EscapeDataString(city);
+        string url = $"{apiUrl}/search?q={escapedCity}&format=json";
+        
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "MyGeocodingApp/1.0");
         HttpResponseMessage response = await _httpClient.GetAsync(url);
         string content = await response.Content.ReadAsStringAsync();

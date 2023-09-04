@@ -61,45 +61,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<WorldContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Data Source=ACADEMY11\\SQLEXPRESS;Initial Catalog=world;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MainConnection"));
 });
 
-
-
-
-
-/*builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminPolicy", policy =>
-    {
-        policy.RequireRole("Admin");
-    });
-
-    options.AddPolicy("UserPolicy", policy =>
-    {
-        // Allow regular users to access the GetTempOfCity API.
-        policy.RequireAssertion(context =>
-        {
-            var httpContext = context.Resource as Microsoft.AspNetCore.Http.HttpContext;
-            if (httpContext == null)
-            {
-                return false;
-            }
-
-            var endpoint = httpContext.GetEndpoint();
-            if (endpoint == null)
-            {
-                return false;
-            }
-
-            // Check if the user is authenticated and not an admin.
-            return context.User.Identity.IsAuthenticated &&
-                   !context.User.IsInRole("Admin") &&
-                    (endpoint.DisplayName == "GetTempOfCity" ||
-                    endpoint.DisplayName == "PostSuggestCities");
-        });
-    });
-});*/
+builder.Services.AddTransient<CityPopulationService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
@@ -113,8 +78,11 @@ builder.Services.AddScoped<ICityPopulationService, CityPopulationService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IHumidityService, HumidityService>();
 
+builder.Services.AddTransient<HumidityService>();
+builder.Services.AddTransient<RegionService>();
+builder.Services.AddTransient<WeatherService>();
 
-var redisServerPath = "D:\\red\\redis-server.exe";
+var redisServerPath = "RedLocation";
 if (File.Exists(redisServerPath))
 {
     var processInfo = new ProcessStartInfo
@@ -201,4 +169,3 @@ app.UseAuthorization();
 app.MapControllers();
 app.Run();
 
-// https://www.c-sharpcorner.com/article/jwt-authentication-with-refresh-tokens-in-net-6-0/

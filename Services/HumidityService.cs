@@ -12,20 +12,26 @@
     public class HumidityService : IHumidityService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey;
+    
+        private readonly IConfiguration _configuration;
 
-        public HumidityService(HttpClient httpClient)
+        public HumidityService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("http://api.openweathermap.org/data/2.5/");
-            _apiKey = "3bd430ec23ca470e35dc0b05c1f50b47";
+            _configuration = configuration;
+            string huUrl = _configuration["ApiUrls:humidity"];
+            _httpClient.BaseAddress = new Uri(huUrl);
+          
         }
 
         public async Task<int> GetCityHumidityAsync(string city)
         {
             try
             {
-                string url = $"http://api.openweathermap.org/data/2.5/weather?q={Uri.EscapeDataString(city)}&appid={_apiKey}&units=metric";
+                string openWeatherMapBaseUrl = _configuration["ApiUrls:humidity"];
+                string apiKey = _configuration["ApiKeys:OpenWeatherMapkey"];
+                string escapedCity = Uri.EscapeDataString(city);
+                string url = $"{openWeatherMapBaseUrl}/weather?q={escapedCity}&appid={apiKey}&units=metric"; 
                 HttpResponseMessage response = await _httpClient.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)

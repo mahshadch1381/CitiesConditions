@@ -12,11 +12,14 @@
     public class CityPopulationService : ICityPopulationService
     {
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public CityPopulationService(HttpClient httpClient)
+        public CityPopulationService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("http://api.geonames.org/");
+            _configuration = configuration;
+            string geoNamesUrl = _configuration["ApiUrls:GeoNames"];
+            _httpClient.BaseAddress = new Uri(geoNamesUrl);
         }
 
         public async Task<int> GetCityPopulationAsync(string city)

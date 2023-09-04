@@ -15,16 +15,22 @@
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
+        private readonly IConfiguration _configuration;
 
         public WeatherService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://api.openweathermap.org/data/2.5/");
-            _apiKey = "3bd430ec23ca470e35dc0b05c1f50b47";
+            _configuration = configuration; 
+            _apiKey = _configuration["ApiKeys:OpenWeatherMapkey"];
+             string openWeatherMapBaseUrl = _configuration["ApiUrls:OpenWeatherMap"];
+             _httpClient.BaseAddress = new Uri(openWeatherMapBaseUrl);
+               
         }
         public async Task<double> GetTemperatureAsync(string city)
         {
-            string apiUrl = $"http://api.openweathermap.org/data/2.5/weather?q={Uri.EscapeDataString(city)}&APPID={_apiKey}";
+            string escapedCity = Uri.EscapeDataString(city);
+            string openWeatherMapBaseUrl = _configuration["ApiUrls:OpenWeatherMap"];
+            string apiUrl = $"{openWeatherMapBaseUrl}/weather?q={escapedCity}&appid={_apiKey}";
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);

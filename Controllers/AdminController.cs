@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DBFIRST_Cities3.Controllers
 {
-    [Authorize(Policy = "AdminPolicy")]
+    [Authorize]
     [Route("api/admin")]
     [ApiController]
     public class AdminController : ControllerBase
